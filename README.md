@@ -69,7 +69,7 @@ pip install -r requirements.txt
 fermion-research==0.2.15
 numpy==2.2.6
 soundfile==0.13.1
-gradio
+gradio==5.50.0
 ```
 
 ### 3. Install FFmpeg
