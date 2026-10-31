@@ -560,7 +560,7 @@ def run_pipeline(src, out_dir, max_words, upper, strip, emit, stop: threading.Ev
     log(f"✔ transcript saved  ·  {os.path.basename(transcript_path)}", ui=False)
 
     # Export all four final files in one ZIP, named after the input file.
-    zip_path = os.path.join(out_dir, f"{stem}.zip")
+    zip_path = os.path.join(out_dir, f"{stem}_subtiles.zip")
     zip_members = [outputs[key][0] for key in ("horizontal", "vertical", "word", "transcript")]
     with zipfile.ZipFile(zip_path, "w", compression=zipfile.ZIP_DEFLATED) as archive:
         for member in zip_members:
@@ -852,7 +852,7 @@ def build_ui():
                            else "...or drag & drop video / audio"),
                     type="filepath")
                 with gr.Accordion("Shorts & word-level options", open=False):
-                    words_per_cue = gr.Slider(1, 3, value=3, step=1,
+                    words_per_cue = gr.Slider(1, 5, value=3, step=1,
                                               label="Max words per cue (Shorts)")
                     upper = gr.Checkbox(value=True, label="UPPERCASE  (Shorts + word level)")
                     strip = gr.Checkbox(value=True,
